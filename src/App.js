@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
+import { counterActions } from "./store";
 
 function App() {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
   const increment = () => {
-    dispatch({type: "INCREMENT"})
+    dispatch(counterActions.increment());
   }
 
   const decrement = () => {
-    dispatch({type: "DECREMENT"})
+    dispatch(counterActions.decrement());
   }
 
   return (
@@ -19,7 +20,7 @@ function App() {
         Counter : {counter}
         <div style={{justifyContent: "space-between"}}>
           <button onClick={increment}>Increment +</button>
-          <button onClick={decrement}>Decrement -</button>
+          <button onClick={decrement}>Increment -</button>
         </div>
       </div>
     </div>
